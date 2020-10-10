@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jzw.dao.MenuDao">
+
+	<resultMap id="menumap" type="menuInfo">
+		<id column="id" property="id"></id>
+		<result column="name" property="name"></result>
+		<result column="menucode" property="menuCode"></result>
+		<result column="parentid" property="parentId"></result>
+		<result column="nodetype" property="nodeType"></result>
+		<result column="iconurl" property="iconUrl"></result>
+		<result column="sort" property="sort"></result>
+		<result column="linkurl" property="linkUrl"></result>
+		<result column="level" property="level"></result>
+		<result column="path" property="path"></result>
+	</resultMap>
+
+
+
+
+	<select id="querymenuBypidandnodeType"  resultMap="menumap">
+		select * from menu_info where parentid =#{pid} and nodetype = #{nodeType}
+	</select>
+
+
+</mapper>
